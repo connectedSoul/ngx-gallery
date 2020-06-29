@@ -156,8 +156,10 @@ export class GalleryRef {
       ...this._state.value.items.slice(0, i),
       ...this._state.value.items.slice(i + 1, this._state.value.items.length)
     ];
+    let newIndex = i > 0 ? i - 1 : 0;
     this.setState({
       action: GalleryAction.ITEMS_CHANGED,
+      currIndex: newIndex,
       items: items,
       hasNext: items.length > 1,
       hasPrev: i > 0
